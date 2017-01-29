@@ -3,7 +3,7 @@
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.26.
 
 - User Registration
-- User Login
+- User Login (JWT)
 - Translate Interface
 - Angular Module (Main Module, Shared Module, Home and Info module)
 
