@@ -7,10 +7,11 @@ This project was generated with [angular-cli](https://github.com/angular/angular
 - Translate Interface
 - Angular Module (Main Module, Shared Module, Home and Info module)
 
-http://atnagulovid.myjino.ru  - Live Demo
-https://github.com/AtnagulovID/F3-RestApi-for-Angular2 - Backend (RestApi)
- 
-https://github.com/bcosca/fatfree - FatFreeFrameWork (Backend)
+ http://atnagulovid.myjino.ru  - Live Demo
+
+ https://github.com/AtnagulovID/F3-RestApi-for-Angular2 - Backend (RestApi)
+
+ https://github.com/bcosca/fatfree - FatFreeFrameWork (Backend)
 
 
 ## Development server
