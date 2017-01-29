@@ -5,6 +5,7 @@ This project was generated with [angular-cli](https://github.com/angular/angular
 - User Registration
 - User Login
 - Translate Interface
+- Angular Module (Main Module, Shared Module, Home and Info module)
 
 http://atnagulovid.myjino.ru  - Live Demo
 https://github.com/AtnagulovID/F3-RestApi-for-Angular2 - Backend (RestApi)
