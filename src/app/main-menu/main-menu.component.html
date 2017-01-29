@@ -1,0 +1,24 @@
+<!-- http://v4-alpha.getbootstrap.com/examples/jumbotron/ -->
+    <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" routerLink="/">Angular 2 Cli</a>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+		  <li *ngIf="this.authenticationService.isLoggedIn()" class="nav-item"><a class="nav-link" routerLink="/">{{ 'Home' | translate }}</a></li>
+		  <li *ngIf="this.authenticationService.isLoggedIn()" class="nav-item"><a class="nav-link" routerLink="/info">{{ 'Info' | translate }}</a></li>
+		  <li *ngIf="this.authenticationService.isLoggedIn()" class="nav-item"><a class="nav-link" routerLink="/login">{{ 'Exit' | translate }}</a></li>
+        </ul>
+		<ul class="navbar-nav my-2 my-lg-0">
+		  <li *ngIf="!this.authenticationService.isLoggedIn()" class="nav-item"><a class="nav-link" routerLink="/login">Enter</a></li>
+		</ul>
+        <form class="form-inline my-2 my-lg-0">
+			<label class="badge" for="langSelect">{{ 'Language' | translate }}: </label>
+			<select class="form-control" #langSelect (change)="translateService.use(langSelect.value)" >
+			  <option *ngFor="let lang of translateService.getLangs()" [value]="lang" [selected]="lang === translateService.currentLang">{{ lang }}</option>
+			</select>
+		</form>	
+		</div>
+    </nav>

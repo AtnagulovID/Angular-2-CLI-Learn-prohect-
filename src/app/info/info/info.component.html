@@ -1,0 +1,22 @@
+	<table>
+    <tr>
+    		<td><input type="text" class="form-control" name="name" [(ngModel)]="newAffair.name" #name="ngModel" /></td>
+    		<td><input type="text" class="form-control" name="date" [(ngModel)]="newAffair.date" #date="ngModel" /></td>
+    		<td>
+    			<a type="button" class="btn btn-success" (click)="create(newUser)">{{ 'Add' | translate }}</a>
+    		</td>
+    </tr>		
+    <tr *ngFor="let affair of affairs">
+        <td>
+            <div ng-hide="editingData[user.ID]">{{affair.name | uppercase}}</div>
+            <div ng-show="editingData[user.ID]"><input type="text" class="form-control" ng-model="affair.username" /></div>
+        </td>
+        <td>
+            <div ng-hide="editingData[user.ID]">{{affair.date}}</div>
+            <div ng-show="editingData[user.ID]"><input type="text" class="form-control" ng-model="affair.date" /></div>
+        </td>
+        <td>
+            <a type="button" class="btn btn-danger" ng-hide="editingData[affair.ID]" (click)="deleteAffairs(affair.id)">{{ 'Delete' | translate }}</a>
+        </td>
+    </tr>
+    </table>
