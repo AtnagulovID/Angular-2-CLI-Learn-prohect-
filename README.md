@@ -2,6 +2,16 @@
 
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.26.
 
+- User Registration
+- User Login
+- Translate Interface
+
+http://atnagulovid.myjino.ru  - Live Demo
+https://github.com/AtnagulovID/F3-RestApi-for-Angular2 - Backend (RestApi)
+ 
+https://github.com/bcosca/fatfree - FatFreeFrameWork (Backend)
+
+
 ## Development server
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
