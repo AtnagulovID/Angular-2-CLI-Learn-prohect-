@@ -14,7 +14,7 @@ export class UserService {
 
     constructor(private http: Http, private authenticationService: AuthenticationService ) { }
 	
-    getAll() {
+    getAll() { 
         return this.http.get(this.authenticationService.workHost()+'/api/users', this.authenticationService.jwt())
 							.map((response: Response) => response.json())
 							.catch((error:any) => Observable.throw(error.json().message));

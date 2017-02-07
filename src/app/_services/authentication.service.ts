@@ -6,7 +6,7 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 
 import { User } from '../_models/index';
-import {TranslateService} from "../_translate/translate.service";
+import { TranslateService } from "../_translate/translate.service";
 
 
 @Injectable()
@@ -17,7 +17,7 @@ export class AuthenticationService {
 				private translateService: TranslateService
 				) { }
 
-    login(username: string, password: string): Observable<boolean> {
+    login(username: string, password: string) {
 		let headers = new Headers();
 		headers.append('Content-Type', 'application/json');
 		
@@ -26,11 +26,12 @@ export class AuthenticationService {
                 let user = response.json();
                 if (user && user.token) {
                     localStorage.setItem('currentUser', JSON.stringify(user));
-					return true;					
+					return user;					
                 } else {
-                    return false;
+                    return null;
                 }
-            });
+            })
+			.catch((error:any) => Observable.throw(error.json().message));
     }
 
     logout(): void {
@@ -43,7 +44,6 @@ export class AuthenticationService {
 	}	
 	
     jwt() { 
-        // create authorization header with jwt token
 		let headers = new Headers();
 		headers.append('Content-Type', 'application/json');
 		headers.append('Content-Language', this.translateService.currentLang);		

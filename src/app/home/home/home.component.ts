@@ -11,6 +11,8 @@ import { AlertService } from '../../_alert/index';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  loading = false;
+  editing = false;
   currentUser: User;
   public editUser: User;
 
@@ -18,6 +20,9 @@ export class HomeComponent implements OnInit {
 				private userService: UserService,
 				private alertService: AlertService
 				) {
+    }
+
+  ngOnInit() {
         this.currentUser = this.authenticationService.getCurrentUser();
 		this.userService.getAuthUser()
 			.subscribe(
@@ -28,17 +33,23 @@ export class HomeComponent implements OnInit {
 				error => {
 					this.alertService.error(error);
 				});
-    }
-
-  ngOnInit() {
   }
 
+  edit() {
+	this.editing = true;
+  }
+
+  cancel() {
+	this.editing = false;
+  }
+  
   save() {
 	this.userService.update(this.editUser)
 		.subscribe(
 			user => {
 				this.userService.getAuthUser().subscribe(user => { this.editUser = user; });
 				this.alertService.success('Success edit');
+				this.editing = false;
 			},
 			error => {
 				this.alertService.error(error);

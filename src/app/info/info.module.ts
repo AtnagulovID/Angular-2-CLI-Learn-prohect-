@@ -7,7 +7,6 @@ import { InfoComponent } from './info/info.component';
 import { InfoRoutingModule } from './info-routing.module';
 import { AffairsService } from './_services/index';
 
-
 @NgModule({
   declarations: [
     InfoComponent

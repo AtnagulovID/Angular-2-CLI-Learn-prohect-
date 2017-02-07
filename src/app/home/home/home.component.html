@@ -1,27 +1,33 @@
-  <div *ngIf="this.editUser">
-    <form name="form" (ngSubmit)="f.form.valid && save()" #f="ngForm" novalidate>
+  <div *ngIf="editUser">
+    <form #f="ngForm" (ngSubmit)="f.form.valid && save()" name="form" novalidate>
         <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
             <label for="firstname">{{ 'First Name' | translate }}</label>
-            <input type="text" class="form-control" name="firstname" [(ngModel)]="editUser.firstname" #firstname="ngModel" required />
+            <div [hidden]="!editing"><input type="text" class="form-control" name="firstname" [(ngModel)]="editUser.firstname" #firstname="ngModel" required /></div>
+			<div [hidden]="editing"><b>{{ editUser.firstname }}</b></div>
             <div *ngIf="f.submitted && !firstname.valid" class="help-block">{{ 'First Name' | translate }} {{ 'is required' | translate }}</div>
         </div>
         <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
             <label for="lastname">{{ 'Last Name' | translate }}</label>
-            <input type="text" class="form-control" name="lastname" [(ngModel)]="this.editUser.lastname" #lastname="ngModel" required />
+            <div [hidden]="!editing"><input type="text" class="form-control" name="lastname" [(ngModel)]="editUser.lastname" #lastname="ngModel" required /></div>
+            <div [hidden]="editing"><b>{{ this.editUser.lastname }}</b></div>
             <div *ngIf="f.submitted && !lastname.valid" class="help-block">{{ 'Last Name' | translate }} {{ 'is required' | translate }}</div>
         </div>
         <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
             <label for="username">{{ 'Login' | translate }}</label>
-            <input type="text" class="form-control" name="username" [(ngModel)]="this.editUser.username" #username="ngModel" required />
+            <div [hidden]="!editing"><input type="text" class="form-control" name="username" [(ngModel)]="editUser.username" #username="ngModel" required /></div>
+            <div [hidden]="editing"><b>{{ this.editUser.username }}</b></div>
             <div *ngIf="f.submitted && !username.valid" class="help-block">{{ 'Login' | translate }} {{ 'is required' | translate }}</div>
         </div>
         <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
             <label for="password">{{ 'Password' | translate }}</label>
-            <input type="password" class="form-control" name="password" [(ngModel)]="this.editUser.password" #password="ngModel" required />
+            <div [hidden]="!editing"><input type="password" class="form-control" name="password" [(ngModel)]="editUser.password" #password="ngModel" required /></div>
+            <div [hidden]="editing"><b> ********* </b></div>
             <div *ngIf="f.submitted && !password.valid" class="help-block">{{ 'Password' | translate }} {{ 'is required' | translate }}</div>
         </div>
         <div class="form-group">
-            <button [disabled]="loading" class="btn btn-primary">{{ 'Save' | translate }}</button>
+            <div [hidden]="editing"><a (click)="edit()" class="btn btn-link">{{ 'Edit' | translate }}</a></div>
+            <div [hidden]="!editing"><button [disabled]="loading" class="btn btn-primary">{{ 'Save' | translate }}</button></div>
+            <div [hidden]="!editing"><a (click)="cancel()" class="btn btn-link">{{ 'Cancel' | translate }}</a></div>
             <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
         </div>
     </form>

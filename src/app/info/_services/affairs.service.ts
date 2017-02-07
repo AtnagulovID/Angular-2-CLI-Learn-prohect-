@@ -20,7 +20,7 @@ export class AffairsService {
 							.catch((error:any) => Observable.throw(error.json().message));
     }
 
-    getById(id: number) {
+    getById(id: number) { 
         return this.http.get(this.authenticationService.workHost()+'/api/affairs/' + id, this.authenticationService.jwt())
 							.map((response: Response) => response.json())
 							.catch((error:any) => Observable.throw(error.json().message))

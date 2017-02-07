@@ -26,13 +26,17 @@ export class LoginComponent implements OnInit {
     login() {
         this.loading = true;
         this.authenticationService.login(this.model.username, this.model.password)
-            .subscribe(result => {
-                if (result === true) {
-                    this.router.navigate(['/']);
-                } else {
-                    this.alertService.error('Имя пользователя или пароль не верны');
-                    this.loading = false;
-                }
-            });
+			.subscribe(
+				user => {
+					if (!!user) {
+						this.router.navigate(['/'])
+					} else {
+						this.alertService.error('User not found');
+						this.loading = false;
+					}
+				},
+				error => {
+					this.alertService.error(error);
+				});
     }
 }
