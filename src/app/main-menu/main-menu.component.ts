@@ -10,16 +10,26 @@ import { TranslateService } from '../_translate/index';
 })
 export class MainMenuComponent implements OnInit {
 
+  public supportedLangs: any[];
+
   constructor(private authenticationService: AuthenticationService,
 			  private translateService: TranslateService) {
   }
 
   ngOnInit() {
-    this.translateService.addLangs(["en", "ru", "bs"]);
-    this.translateService.setDefaultLang('bs');
+    this.selectLang('ru');        
 
-    const browserLang = this.translateService.getBrowserLang();
-	this.translateService.use(browserLang.match(/en|ru|bs/) ? browserLang : 'en');
+    this.supportedLangs = [
+      { display: 'English', value: 'en' },
+      { display: 'Русский', value: 'ru' },
+      { display: 'Башkорт', value: 'bs' },
+    ];
+
   }
+
+    selectLang(lang: string) {
+      this.translateService.use(lang);
+    }
+
 
 }

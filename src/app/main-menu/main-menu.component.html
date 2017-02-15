@@ -14,11 +14,12 @@
 		<ul class="navbar-nav my-2 my-lg-0">
 		  <li *ngIf="!this.authenticationService.isLoggedIn()" class="nav-item"><a class="nav-link" routerLink="/login">Enter</a></li>
 		</ul>
-        <form class="form-inline my-2 my-lg-0">
+    <form class="form-inline my-2 my-lg-0">
 			<label class="badge" for="langSelect">{{ 'Language' | translate }}: </label>
-			<select class="form-control" #langSelect (change)="translateService.use(langSelect.value)" >
-			  <option *ngFor="let lang of translateService.getLangs()" [value]="lang" [selected]="lang === translateService.currentLang">{{ lang }}</option>
+			<select class="form-control" #langSelect (change)="selectLang(langSelect.value)" >
+			  <option *ngFor="let lang of supportedLangs" [value]="lang.value" [selected]="lang.value === translateService.currentLang">{{ lang.display }}</option>
 			</select>
+			
 		</form>	
 		</div>
     </nav>
