@@ -1,6 +1,6 @@
 http://atnagulovid.myjino.ru - Live Demo
 
-https://github.com/AtnagulovID/Angular-2-CLI-Learn-project - BackEnd
+https://github.com/AtnagulovID/F3-RestApi-for-Angular2 - BackEnd
 
 
 # AuthOpros
