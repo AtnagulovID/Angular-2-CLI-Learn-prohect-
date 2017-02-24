@@ -1,3 +1,8 @@
+http://atnagulovid.myjino.ru - Live Demo
+
+https://github.com/AtnagulovID/Angular-2-CLI-Learn-project - BackEnd
+
+
 # AuthOpros
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0-beta.32.3.
