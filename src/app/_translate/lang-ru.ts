@@ -29,5 +29,9 @@ export const LANG_RU_TRANS = {
 	"Date": "Дата",
 	"First component": "Первый компонент",
 	"Second component": "Второй компонент",
-	"Three component": "Третий компонент"	
+	"Three component": "Третий компонент",
+	"Email": "Email",
+	"Answer": "Ответ",
+	"Question": "Вопрос",
+	"Interview": "Опрос"	
 };

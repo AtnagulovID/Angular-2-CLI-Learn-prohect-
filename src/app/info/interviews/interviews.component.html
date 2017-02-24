@@ -1,0 +1,36 @@
+                <div class="animate">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header card-primary card-inverse">
+                                    <span class="card-title">{{ 'Add' | translate }}</span>
+                                </div>
+                                <div class="card-block">
+                                    <div class="form-group">
+                                    <label for="email">{{ 'Text' | translate }}:</label>
+                                    <textarea type="text" class="form-control" name="name" [(ngModel)]="newInterview.name" #name="ngModel" required ></textarea>
+                                    </div>
+                                    <div class="form-group form-inline">
+                                        <a type="button" class="btn btn-xs btn-primary" (click)="create(newInterview)"><span class="glyphicon glyphicon-plus"></span>{{ 'Add' | translate }}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>	
+                </div>		
+
+				<div class="row" *ngFor="let interview of interviews">
+
+                    <strong class="col-md-10" [hidden]="editingData[interview.id]" [innerHTML]="interview.name"></strong>
+                    <div class="col-md-10"[hidden]="!editingData[interview.id]"><textarea class="form-control" [(ngModel)]="interview.name"></textarea></div>
+                    <div class="col-md-2">
+                        <a type="button" [hidden]="editingData[interview.id]" class="btn btn-primary" (click)="editInterviews(interview)"><span class="fa fa-pencil"></span></a>
+                        <a type="button" [hidden]="!editingData[interview.id]" class="btn btn-xs btn-primary" (click)="cancelInterviews(interview.id)"><span class="fa fa-close"></span></a>
+                        <a type="button" [hidden]="editingData[interview.id]" class="btn btn-xs btn-primary" (click)="deleteInterviews(interview)"><span class="fa fa-minus"></span></a>
+                        <a type="button" [hidden]="!editingData[interview.id]" class="btn btn-xs btn-primary" (click)="updateInterviews(interview)"><span class="fa fa-check"></span></a>
+                    </div>
+                    <div class="col-md-12">
+                        <app-question [interview]="interview.id">
+                        </app-question>
+                    </div>
+                </div>		

@@ -29,5 +29,10 @@ export const LANG_EN_TRANS = {
 	"Date": "Date",
 	"First component": "First component",
 	"Second component": "Second component",
-	"Three component": "Three component"
+	"Three component": "Three component",
+	"Email": "Email",
+	"Answer": "Answer",
+	"Question": "Question",
+	"Interview": "Interview"
+	
 };

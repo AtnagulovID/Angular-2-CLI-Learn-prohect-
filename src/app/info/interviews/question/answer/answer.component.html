@@ -1,0 +1,15 @@
+        <input type="text" class="form-control" [(ngModel)]="newAnswer.name" (keyup.enter)="create(newAnswer)" placeholder="{{ 'Answer' | translate }}">
+
+				<ul class="row" *ngFor="let answer of answers">
+
+          <li class="col-md-12">
+              <div class="col-md-10" [hidden]="editingData[answer.id]" [innerHTML]="answer.name"></div>
+              <div class="col-md-10"[hidden]="!editingData[answer.id]"><input class="form-control" [(ngModel)]="answer.name"></div>
+              <div class="col-md-2">
+                  <a type="button" [hidden]="editingData[answer.id]" class="btn btn-primary" (click)="editAnswers(answer)"><span class="fa fa-pencil"></span></a>
+                  <a type="button" [hidden]="!editingData[answer.id]" class="btn btn-xs btn-primary" (click)="cancelAnswers(answer.id)"><span class="fa fa-close"></span></a>
+                  <a type="button" [hidden]="editingData[answer.id]" class="btn btn-xs btn-primary" (click)="deleteAnswers(answer)"><span class="fa fa-minus"></span></a>
+                  <a type="button" [hidden]="!editingData[answer.id]" class="btn btn-xs btn-primary" (click)="updateAnswers(answer)"><span class="fa fa-check"></span></a>
+              </div>
+          </li>
+        </ul>		

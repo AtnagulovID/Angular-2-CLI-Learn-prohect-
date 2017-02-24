@@ -29,5 +29,9 @@ export const LANG_BS_TRANS = {
 	"Date": "Дата",
 	"First component": "Беренсе компонент",
 	"Second component": "Икенсе компонент",
-	"Three component": "Осөнсө компонент"			
+	"Three component": "Осөнсө компонент",
+	"Email": "Email",
+	"Answer": "Яуап",
+	"Question": "hорау",
+	"Interview": "Опрос"			
 };

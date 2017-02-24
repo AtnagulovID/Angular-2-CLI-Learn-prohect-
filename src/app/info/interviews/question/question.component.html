@@ -1,0 +1,19 @@
+        <input type="text" class="form-control" [(ngModel)]="newQuestion.name" (keyup.enter)="create(newQuestion)" placeholder="{{ 'Question' | translate }}">
+
+				<div class="row" *ngFor="let question of questions">
+
+                    <div class="col-md-10" [hidden]="editingData[question.id]" [innerHTML]="question.name"></div>
+                    <div class="col-md-10"[hidden]="!editingData[question.id]"><textarea class="form-control" [(ngModel)]="question.name"></textarea></div>
+                    <div class="col-md-2">
+                        <a type="button" [hidden]="editingData[question.id]" class="btn btn-primary" (click)="editQuestions(question)"><span class="fa fa-pencil"></span></a>
+                        <a type="button" [hidden]="!editingData[question.id]" class="btn btn-xs btn-primary" (click)="cancelQuestions(question.id)"><span class="fa fa-close"></span></a>
+                        <a type="button" [hidden]="editingData[question.id]" class="btn btn-xs btn-primary" (click)="deleteQuestions(question)"><span class="fa fa-minus"></span></a>
+                        <a type="button" [hidden]="!editingData[question.id]" class="btn btn-xs btn-primary" (click)="updateQuestions(question)"><span class="fa fa-check"></span></a>
+                    </div>
+
+                    <div class="col-md-12">
+                        <app-answer [interview]="question.id">
+                        </app-answer>
+                    </div>
+
+                </div>		

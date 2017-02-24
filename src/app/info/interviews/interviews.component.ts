@@ -5,67 +5,66 @@ import { Interview } from '../../_models/index';
 import { AlertService } from '../../_alert/index';
 
 @Component({
-  selector: 'home-info',
-  templateUrl: './info.component.html',
-  styleUrls: ['./info.component.css']
+  selector: 'app-interviews',
+  templateUrl: './interviews.component.html',
+  styleUrls: ['./interviews.component.css']
 })
-
-export class InfoComponent implements OnInit {
-    newinterview: Interview = new Interview();
-    Interview: Interview[] = [];
-	editingData: boolean[] = [];
+export class InterviewsComponent implements OnInit {
+    newInterview: Interview = new Interview();
+    interviews: Interview[] = [];
+	  editingData: boolean[] = [];
 
 	
     constructor(private authenticationService: AuthenticationService,
-				private InterviewService: InterviewService,
+				private interviewsService: InterviewService,
 				private alertService: AlertService
 				)
-	{
+	  {
     }
 
     ngOnInit() {
-        this.loadAllInterview();		
+        this.loadAllInterviews();		
     }
 
 	loadEdit(){	
-		for (var interview of this.Interview){ 
+		for (var interview of this.interviews){ 
 			this.editingData[interview.id] = false;
 		};
 	}	
 
-    private loadAllInterview() {
-        this.InterviewService.getAll()
+    private loadAllInterviews() {
+        this.interviewsService.getAll()
 									.subscribe( 
-												Interview => { this.Interview = Interview;
+												interviews => { this.interviews = interviews;
 															 this.loadEdit();
 															}
 											  );
     }
 
-    deleteInterview(interview: Interview) {
-        this.InterviewService.delete(interview.id)
+    deleteInterviews(interview: Interview) {
+        this.interviewsService.delete(interview.id)
             .subscribe(
                 data => {
-					var index = this.Interview.indexOf(interview);
-					this.Interview.splice(index, 1); 
+					var index = this.interviews.indexOf(interview);
+					this.interviews.splice(index, 1); 
                 },
                 error => {
                     this.alertService.error(error);
                 });
     }
 
-	editInterview(interview: Interview)
+	editInterviews(interview: Interview)
 	{
 		this.editingData[interview.id] = true;
 	}
 
-	cancelInterview(id: number)
+	cancelInterviews(id: number)
 	{
 		this.editingData[id] = false;
 	}
 	
-    updateInterview(interview: Interview) {
-        this.InterviewService.update(interview)
+    updateInterviews(interview: Interview) {
+        this.interviewsService.update(interview)
             .subscribe(
                 interview => {					
 					this.editingData[interview.id] = false;
@@ -76,10 +75,10 @@ export class InfoComponent implements OnInit {
     }
 
     create() {
-        this.InterviewService.create(this.newinterview)
+        this.interviewsService.create(this.newInterview)
             .subscribe(
                 data => {
-					this.loadAllInterview();
+					this.loadAllInterviews();
                 },
                 error => {
                     this.alertService.error(error);
