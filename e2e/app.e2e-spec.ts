@@ -1,10 +1,10 @@
-import { AuthCliPage } from './app.po';
+import { AuthOprosPage } from './app.po';
 
-describe('auth-cli App', function() {
-  let page: AuthCliPage;
+describe('auth-opros App', () => {
+  let page: AuthOprosPage;
 
   beforeEach(() => {
-    page = new AuthCliPage();
+    page = new AuthOprosPage();
   });
 
   it('should display message saying app works', () => {

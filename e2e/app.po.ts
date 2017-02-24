@@ -1,6 +1,6 @@
 import { browser, element, by } from 'protractor';
 
-export class AuthCliPage {
+export class AuthOprosPage {
   navigateTo() {
     return browser.get('/');
   }

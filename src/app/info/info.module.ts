@@ -10,9 +10,6 @@ import { InterviewService } from './_services/index';
 import { QuestionService } from './_services/index';
 import { AnswerService } from './_services/index';
 import { InfoMenuComponent } from './info-menu/info-menu.component';
-import { FirstItemComponent } from './first-item/first-item.component';
-import { SecondItemComponent } from './second-item/second-item.component';
-import { ThreeItemComponent } from './three-item/three-item.component';
 import { InterviewComponent } from './interview/interview.component';
 import { InterviewsComponent } from './interviews/interviews.component';
 import { QuestionComponent } from './interviews/question/question.component';
@@ -22,9 +19,6 @@ import { AnswerComponent } from './interviews/question/answer/answer.component';
   declarations: [
     InfoComponent,
     InfoMenuComponent,
-    FirstItemComponent,
-    SecondItemComponent,
-    ThreeItemComponent,
     InterviewComponent,
     InterviewsComponent,
     QuestionComponent,
